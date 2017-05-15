@@ -4,6 +4,12 @@ An API for the [BLUME data of Berlin][blume].
 
 The current version of the API is not deloyed and is just for research purposes.
 
+## Docker
+
+```
+$ docker build -t blume-api:latest .
+$ docker run -p 4567:4567 -it blume-api:latest
+```
 
 ## Usage
 
