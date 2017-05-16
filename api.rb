@@ -1,5 +1,8 @@
 require 'sinatra'
 require 'csv'
+require 'mongoid'
+require 'httparty'
+require_relative 'models/page.rb'
 require_relative './models/sensor.rb'
 require_relative './models/sensor_data.rb'
 
@@ -60,6 +63,40 @@ def sensor_data_for_station_by_year(station, year)
   sensor_data_for_station(station).for_year(year)
 end
 
+def check_and_download(date)
+    # we will crawl from 2008-01-01 until today
+    env = ENV['ENV'] == 'production' ? :production : :development
+    # Mongo::Logger.logger.level = ::Logger::FATAL
+    Mongoid.load!("./mongoid.yml", env)
+
+    base_url = 'http://www.stadtentwicklung.berlin.de/umwelt/luftqualitaet/de/messnetz/tageswerte/download/%s.html'
+    url_id = date.strftime('%Y%m%d')
+    url_to_download = base_url % url_id
+    date_is_recent = Date.today - date < 5
+    page_already_exists = Page.where(url: url_to_download).exists?
+    unless page_already_exists && !date_is_recent
+        response = HTTParty.get(url_to_download)
+        body = response.body.to_s.encode('UTF-8', {:invalid => :replace, :undef => :replace, :replace => '?'})
+        if page_already_exists
+            page = Page.where(url: url_to_download).first
+            page.update_attributes!(
+              content: body,
+              date_download: DateTime.now
+            )
+            puts 'Updated %s' % url_id
+        else
+            Page.create(
+              content: body,
+              url: url_to_download,
+              date_download: DateTime.now
+            )
+            puts 'Inserted %s' % url_id
+        end
+        sleep(1)
+    end
+end
+
+
 get '/api/v1/stations' do
   content_type :json
   Sensor.all.map { |e| {sensor_id: e.sensor_id} }.to_json
@@ -88,6 +125,10 @@ end
 get '/api/v1/sensordata/:year' do
   content_type :json
   convert_to_json SensorData.for_year(params[:year].to_i)
+end
+
+get '/api/v1/download/:date' do
+  check_and_download(params[:year])
 end
 
 get '/api/v1/sensordata/:year/csv' do
