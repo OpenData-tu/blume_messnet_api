@@ -14,4 +14,4 @@ USER nobody
 ENV RACK_ENV production 
 EXPOSE 4567  
 WORKDIR /app
-CMD ["ruby", "api.rb"]
+CMD ["shotgun", "api.rb"]

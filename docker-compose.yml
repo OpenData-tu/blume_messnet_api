@@ -2,14 +2,16 @@ version: '2'
 services:
   web:
     image: blume:latest
-      volumes:
-        - /Users/Oleg1/Documents/Wille/Studium/TU/CP/blume_messnet_api:/app
     environment:
       - MONGODB_URI=mongodb://mongodb:27017/blume_pages
+    volumes: 
+      - ./:/app
     ports:
       - 4567:4567
     links:
       - mongodb:mongodb
   mongodb:
     image: mongo:3.2
+    ports:
+      - "27017:27017"
     command: mongod --smallfiles
