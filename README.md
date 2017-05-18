@@ -6,9 +6,19 @@ The current version of the API is not deloyed and is just for research purposes.
 
 ## Docker
 
-```
+Build the image and run it
+
+``` bash
 $ docker build -t blume-api:latest .
 $ docker run -p 4567:4567 -it blume-api:latest
+```
+
+### Docker Compose
+
+See [docker-compose.yml](docker-compose.yml)
+
+``` bash
+$ docker-compose up
 ```
 
 ## Usage
