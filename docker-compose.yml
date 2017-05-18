@@ -1,7 +1,7 @@
 version: '2'
 services:
   web:
-    image: blume:latest
+    image: blume-api:latest
     environment:
       - MONGODB_URI=mongodb://mongodb:27017/blume_pages
     volumes: 
