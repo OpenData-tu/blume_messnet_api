@@ -13,7 +13,7 @@
           "city": "Berlin",
           "bezirk": "Mitte"
         },
-        "url": "/umwelt/umweltatlas/extra/3_12/d312_MC010.htm",
+        "url": "/umwelt/umweltatlas/extra/3_12/d312_MC010.htm"
     },
     {
         "id": "018",
@@ -28,9 +28,9 @@
           "number": "52",
           "plz": "10823",
           "city": "Berlin",
-          "bezirk": "Tempelhof-Schöneberg",
+          "bezirk": "Tempelhof-Schöneberg"
         },
-        "url": "/umwelt/umweltatlas/extra/3_12/d312_MC018.htm",
+        "url": "/umwelt/umweltatlas/extra/3_12/d312_MC018.htm"
     },
     {
         "id": "027",
@@ -45,7 +45,7 @@
           "number": "60",
           "plz": "12307",
           "city": "Berlin",
-          "bezirk": "Tempelhof-Schöneberg",
+          "bezirk": "Tempelhof-Schöneberg"
         },
         "url": "/umwelt/umweltatlas/extra/3_12/d312_MC027.htm"
     },
@@ -62,9 +62,9 @@
           "number": "91",
           "plz": "14193",
           "city": "Berlin",
-          "bezirk": "Charlottenburg-Wilmersdorf",
+          "bezirk": "Charlottenburg-Wilmersdorf"
         },
-        "url": "/umwelt/umweltatlas/extra/3_12/d312_MC032_u.htm",
+        "url": "/umwelt/umweltatlas/extra/3_12/d312_MC032_u.htm"
     },
     {
         "id": "042",
@@ -79,9 +79,9 @@
           "number": "10",
           "plz": "12047",
           "city": "Berlin",
-          "bezirk": "Neukölln",
+          "bezirk": "Neukölln"
         },
-        "url": "/umwelt/umweltatlas/extra/3_12/d312_MC042.htm",
+        "url": "/umwelt/umweltatlas/extra/3_12/d312_MC042.htm"
     },
     {
         "id": "077",
@@ -89,7 +89,15 @@
         "coord": [52.643525, 13.489531],
         "alt": "Messcontainer 077, Wiltbergstr. 50 (Klinikum Buch)",
         "ref": "DEBE051",
-        "addr": "Wiltbergstr. 50 (Klinikum Buch), 13125 Berlin, Pankow, Ortsteil Buch",
+        "addr":
+        {
+          "full": "Wiltbergstr. 50 (Klinikum Buch), 13125 Berlin, Pankow, Ortsteil Buch",
+          "street": "Wiltbergstr.",
+          "number": "50",
+          "plz": "13125",
+          "city": "Berlin",
+          "bezirk": "Pankow"
+        },
         "url": "/umwelt/umweltatlas/extra/3_12/d312_MC077.htm"
     },
     {
@@ -105,9 +113,9 @@
             "number": "307-310",
             "plz": "12587",
             "city": "Berlin",
-            "bezirk": "Treptow-Köpenick",
+            "bezirk": "Treptow-Köpenick"
         },
-        "url": "/umwelt/umweltatlas/extra/3_12/d312_MC085.htm",
+        "url": "/umwelt/umweltatlas/extra/3_12/d312_MC085.htm"
     },
     {
         "id": "115",
@@ -121,9 +129,9 @@
             "street": "Hardenbergplatz",
             "plz": "10623",
             "city": "Berlin",
-            "bezirk": "Charlottenburg-Wilmersdorf",
+            "bezirk": "Charlottenburg-Wilmersdorf"
         },
-        "url": "/umwelt/umweltatlas/extra/3_12/d312_MC115.htm",
+        "url": "/umwelt/umweltatlas/extra/3_12/d312_MC115.htm"
     },
     {
         "id": "117",
@@ -138,9 +146,9 @@
           "number": "76",
           "plz": "12163",
           "city": "Berlin",
-          "bezirk": "Steglitz-Zehlendorf",
+          "bezirk": "Steglitz-Zehlendorf"
         },
-        "url": "/umwelt/umweltatlas/extra/3_12/d312_MC117.htm",
+        "url": "/umwelt/umweltatlas/extra/3_12/d312_MC117.htm"
       },
       {
         "id": "124",
@@ -155,9 +163,9 @@
           "number": "148",
           "plz": "12099",
           "city": "Berlin",
-          "bezirk": "Tempelhof-Schöneberg",
+          "bezirk": "Tempelhof-Schöneberg"
         },
-        "url": "/umwelt/umweltatlas/extra/3_12/d312_MC124.htm",
+        "url": "/umwelt/umweltatlas/extra/3_12/d312_MC124.htm"
       },
       {
         "id": "143",
@@ -174,7 +182,7 @@
           "city": "Berlin",
           "bezirk": "Neukölln"
         },
-        "url": "/umwelt/umweltatlas/extra/3_12/d312_MC143.htm",
+        "url": "/umwelt/umweltatlas/extra/3_12/d312_MC143.htm"
       },
       {
         "id": "145",
@@ -191,7 +199,7 @@
           "city": "Berlin",
           "bezirk": "Reinickendorf"
         },
-        "url": "/umwelt/umweltatlas/extra/3_12/d312_MC145.htm",
+        "url": "/umwelt/umweltatlas/extra/3_12/d312_MC145.htm"
       },
       {
         "id": "171",
@@ -206,9 +214,9 @@
           "number": "6",
           "plz": "10179",
           "city": "Berlin",
-          "bezirk": "Mitte",
+          "bezirk": "Mitte"
         },
-        "url": "/umwelt/umweltatlas/extra/3_12/d312_MC171.htm",
+        "url": "/umwelt/umweltatlas/extra/3_12/d312_MC171.htm"
       },
       {
         "id": "174",
@@ -223,37 +231,37 @@
           "number": "86b",
           "plz": "10247",
           "city": "Berlin",
-          "bezirk": "Friedrichshain-Kreuzberg",
+          "bezirk": "Friedrichshain-Kreuzberg"
         },
-        "url":"/umwelt/umweltatlas/extra/3_12/d312_MC174.htm",
+        "url":"/umwelt/umweltatlas/extra/3_12/d312_MC174.htm"
       },
       {
         "id": "220",
         "name": "Messcontainer MC220",
         "coord": [52.481680, 13.433874],
         "alt": "Messcontainer 220, Karl-Marx-Str. 77 ",
-        "url": "DEBE064",
+        "ref": "DEBE064",
         "addr":
         {
-          "full": "Karl-Marx-Str. 77, 12043 Berlin, Neukölln",
+          "full": "Karl-Marx-Str. 77, 12043 Berlin, Neukölln"
         },
-        "url": "/umwelt/umweltatlas/extra/3_12/d312_MC220.htm",
+        "url": "/umwelt/umweltatlas/extra/3_12/d312_MC220.htm"
       },
       {
         "id": "282",
         "name": "Messcontainer MC282",
         "coord": [52.485296, 13.529504],
         "alt": "Messcontainer 282, Johanna-und-Willy-Brauer-Platz",
-        "url": "DEBE066",
+        "ref": "DEBE066",
         "addr":
         {
           "full": "Johanna-und-Willy-Brauer-Platz, 10318 Berlin, Lichtenberg",
           "street": "Johanna-und-Willy-Brauer-Platz",
           "plz": "10318",
           "city": "Berlin",
-          "bezirk": "Lichtenberg",
+          "bezirk": "Lichtenberg"
         },
-        "url": "/umwelt/umweltatlas/extra/3_12/d312_MC282.htm",
+        "url": "/umwelt/umweltatlas/extra/3_12/d312_MC282.htm"
       }
   ]
 }
