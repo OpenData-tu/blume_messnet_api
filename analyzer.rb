@@ -1,10 +1,12 @@
+# from https://github.com/dirkschumacher/blume_crawler
+
 require 'nokogiri'
 require 'mongoid'
 require_relative 'models/page.rb'
 require_relative 'models/sensor_data.rb'
 
 env = ENV['ENV'] == 'production' ? :production : :development
-Mongo::Logger.logger.level = ::Logger::FATAL
+#Mongo::Logger.logger.level = ::Logger::FATAL
 Mongoid.load!("./mongoid.yml", env)
 
 def extract_number(cell_text)

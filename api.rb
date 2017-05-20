@@ -3,7 +3,9 @@ require 'csv'
 require 'mongoid'
 require 'httparty'
 require 'nokogiri'
-require_relative 'models/page.rb'
+require_relative './analyzer.rb'
+require_relative './downloader.rb'
+require_relative './models/page.rb'
 require_relative './models/sensor.rb'
 require_relative './models/sensor_data.rb'
 
@@ -62,43 +64,6 @@ end
 
 def sensor_data_for_station_by_year(station, year)
   sensor_data_for_station(station).for_year(year)
-end
-
-def check_and_download(date)
-    # we will crawl from 2008-01-01 until today
-    env = ENV['ENV'] == 'production' ? :production : :development
-    # Mongo::Logger.logger.level = ::Logger::FATAL
-    Mongoid.load!("./mongoid.yml", env)
-
-    base_url = 'http://www.stadtentwicklung.berlin.de/umwelt/luftqualitaet/de/messnetz/tageswerte/download/%s.html'
-    url_id = Date.parse(date).strftime('%Y%m%d')
-    url_to_download = base_url % url_id
-    # date_is_recent = Date.today - date < 5
-    page_already_exists = Page.where(url: url_to_download).exists?
-    
-    response = HTTParty.get(url_to_download)
-    body = response.body.to_s.encode('UTF-8', {:invalid => :replace, :undef => :replace, :replace => '?'})
-    page = nil
-    if page_already_exists
-        page = Page.where(url: url_to_download).first
-        page.update_attributes!(
-          content: body,
-          date_download: DateTime.now
-        )
-        puts 'Updated %s' % url_id
-        return page
-    else
-        page = Page.create(
-          content: body,
-          url: url_to_download,
-          date_download: DateTime.now
-        )
-        puts 'Inserted %s' % url_id
-        return page
-    end
-    sleep(1)
-
-    return -1
 end
 
 def extract_number(cell_text)
@@ -180,6 +145,11 @@ get '/api/v1/sensordata/yearly/:year' do
   convert_to_json SensorData.for_year(params[:year].to_i)
 end
 
+get '/api/v1/sensordata/yearly/:year/csv' do
+  content_type :csv
+  convert_to_csv SensorData.for_year(params[:year].to_i)
+end
+
 get '/api/v1/sensordata/:date' do
   content_type :json
   convert_to_json SensorData.for_date(params[:date])
@@ -187,13 +157,8 @@ end
 
 get '/api/v1/download/:date' do
   page = check_and_download(params[:date])
-  puts 'page craled, will analyze'
+  puts 'page crawled, will analyze'
   analyse()
-end
-
-get '/api/v1/sensordata/:year/csv' do
-  content_type :csv
-  convert_to_csv SensorData.for_year(params[:year].to_i)
 end
 
 get '/api/v1/recent' do
@@ -205,4 +170,3 @@ get '/api/v1/recent/csv' do
   content_type :csv
   convert_to_csv SensorData.recent
 end
-
