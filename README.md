@@ -48,13 +48,16 @@ Here is a list of API paths which can also be found in *api.rb*:
 * As JSON: `/api/v1/stations/:station_id/sensordata/:year`
 * As CSV: `/api/v1/stations/:station_id/sensordata/:year/csv`
 
-### Sensor data by year
-* As JSON: `/api/v1/sensordata/:year`
-* As CSV: `/api/v1/sensordata/:year/csv`
-
 ### Most recent sensor data
 * As JSON: `/api/v1/recent`
 * As CSV: `/api/v1/recent/csv`
+
+### Sensor data by year
+* As JSON: `/api/v1/sensordata/yearly/:year`
+* As CSV: `/api/v1/sensordata/yearly/:year/csv`
+
+### Download sensor data
+* `/api/v1/download/:date` starts the download of data for the given date
 
 
 ## See also
